@@ -114,6 +114,7 @@ http.createServer(function(request, response) {
 		slide = pptx.makeNewSlide();
 		slide.back = 'ffffff';
 		slide.color = '000000';
+		slide.name = object.objectnumber;
 		if (image) {
 			slide.addImage(image.getBody(), {y: 20, x: 'c', cx: imageDims.width, cy: imageDims.height});
 			textVerticalOffset += imageDims.height
