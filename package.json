@@ -1,0 +1,14 @@
+{
+  "name": "pptx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "image-size": "^0.3.5",
+    "officegen": "^0.2.9",
+    "sync-request": "^2.0.1",
+    "url": "~0.10.3"
+  }
+}
