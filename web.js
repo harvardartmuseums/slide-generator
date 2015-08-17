@@ -6,6 +6,7 @@ var http = require("http"),
 	url = require("url");
 
 var apikey = process.env.APIKEY;
+var port = process.env.PORT || 5000;
 
 http.createServer(function(request, response) {
 	var parsedUrl = url.parse(request.url, true); // true to get query as object
@@ -121,6 +122,6 @@ http.createServer(function(request, response) {
 	});
 
 	pptx.generate(response);
-}).listen(3000);
+}).listen(port);
 
 console.log("Listening on 3000...");
