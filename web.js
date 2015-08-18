@@ -43,9 +43,10 @@ http.createServer(function(request, response) {
 		if (!object.error) {
 			//Get the image of the object
 			var imageParameters = "width=840&height=500";
-			var image, imageDims;
+			var image, imageDims, imageCaption;
 			if (object.imagepermissionlevel > 0) {
 				imageParameters = "width=256&height=256";
+				imageCaption = "(Large image restricted)";
 			}
 			if (object.images[0]) {
 				image = syncrequest('GET', "http://ids.lib.harvard.edu/ids/view/" + object.images[0].idsid + "?" + imageParameters);
@@ -111,13 +112,15 @@ http.createServer(function(request, response) {
 
 			//Put the image and description in the slide
 			var textVerticalOffset = 40;
+			var marginTop = 20;
 
 			slide = pptx.makeNewSlide();
 			slide.back = 'ffffff';
 			slide.color = '000000';
 			slide.name = object.objectnumber;
 			if (image) {
-				slide.addImage(image.getBody(), {y: 20, x: 'c', cx: imageDims.width, cy: imageDims.height});
+				slide.addImage(image.getBody(), {y: marginTop, x: 'c', cx: imageDims.width, cy: imageDims.height});
+				slide.addText(imageCaption, {y: marginTop + imageDims.height, x: 'c', cx: '100%', font_size: 8, font_face: 'Arial', color: '000000', align: 'center'});
 				textVerticalOffset += imageDims.height
 			}
 			slide.addText(description, {y: textVerticalOffset, cx: '100%', font_size: 10, font_face: 'Arial', bold: false, color: '000000', align: 'left'});
