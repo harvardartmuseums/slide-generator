@@ -53,12 +53,14 @@ http.createServer(function(request, response) {
 					imageParameters = "width=256&height=256";
 					imageCaption = "(Large image restricted)";
 				}
-				if (object.images[0]) {
-					image = syncrequest('GET', object.images[0].baseimageurl + "?" + imageParameters);
-					//Add some error handling
-					//Check to make sure image.headers["content-type"] === "image/jpeg
-					//If not, use a place holder image indicating an error has occurred
-					imageDims = sizeOf(image.getBody());
+				if (object.images) {
+					if (object.images[0]) {
+						image = syncrequest('GET', object.images[0].baseimageurl + "?" + imageParameters);
+						//Add some error handling
+						//Check to make sure image.headers["content-type"] === "image/jpeg
+						//If not, use a place holder image indicating an error has occurred
+						imageDims = sizeOf(image.getBody());
+					}
 				}
 
 				//Build the object data in to a description text block
