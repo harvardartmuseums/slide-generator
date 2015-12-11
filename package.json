@@ -10,5 +10,9 @@
     "officegen": "^0.2.9",
     "sync-request": "^2.0.1",
     "url": "~0.10.3"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }
