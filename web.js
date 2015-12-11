@@ -54,7 +54,10 @@ http.createServer(function(request, response) {
 					imageCaption = "(Large image restricted)";
 				}
 				if (object.images[0]) {
-					image = syncrequest('GET', "http://ids.lib.harvard.edu/ids/view/" + object.images[0].idsid + "?" + imageParameters);
+					image = syncrequest('GET', object.images[0].baseimageurl + "?" + imageParameters);
+					//Add some error handling
+					//Check to make sure image.headers["content-type"] === "image/jpeg
+					//If not, use a place holder image indicating an error has occurred
 					imageDims = sizeOf(image.getBody());
 				}
 
