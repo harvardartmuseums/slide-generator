@@ -41,7 +41,6 @@ http.createServer(function(request, response) {
 
 		//Work through the object list making a slide for each
 		objectIDList.forEach(function(objectid) {
-			console.log(isNaN(objectid));
 			if (!isNaN(objectid) && objectid !== "") {
 				//Get the object record
 				var output = syncrequest('GET', 'http://api.harvardartmuseums.org/object/' + objectid + "?apikey=" + apikey);
