@@ -1,15 +1,17 @@
 {
-  "name": "pptx",
+  "name": "PowerPointReceiver",
   "version": "1.0.0",
   "description": "",
-  "main": "web.js",
+  "main": "index.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "image-size": "^0.3.5",
     "officegen": "^0.2.9",
     "sync-request": "^2.0.1",
-    "url": "~0.10.3"
+    "url": "~0.10.3",
+    "aws-sdk": "^0",
+    "fs":"^0"
   },
   "engines": {
     "node": "0.10.x",
