@@ -146,16 +146,18 @@ exports.handler = (event, context, callback) => {
   		console.log ( 'Finished creating the PPTX file!' );
 		var s3 = new AWS.S3();
     	var pptx_local = fs.readFileSync('/tmp/out.pptx');
-    	var filename = collectionid + "_" + useremail + ".pptx";
+    	var filename = collectionid + ".pptx";
     	var param = {Bucket: 'slides.harvardartmuseums.org', Key: filename, Body:pptx_local, ACL:'public-read'};
     	console.log("s3");
+    	var JSONpayload = new Array();
+    	JSONpayload['pptx'] = filename;
     	s3.upload(param, function(err, data) {
         	if (err) console.log(err, err.stack); // an error occurred
         	else console.log(data);           // successful response
     	});
     console.log('done');
 
-    callback(null, "https://s3.amazonaws.com/powerpoint.harvardartmuseums.org/" + filename);
+    callback(null, JSONpayload);
 		});
 	}
  
