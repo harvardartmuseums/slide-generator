@@ -150,15 +150,13 @@ exports.handler = (event, context, callback) => {
     	var param = {Bucket: 'slides.harvardartmuseums.org', Key: filename, Body:pptx_local, ACL:'public-read'};
     	console.log("s3");
     	var JSONpayload = new Array();
-    	JSONpayload['pptx'] = filename;
-    	data = JSON.stringify(JSONpayload);
     	s3.upload(param, function(err, data) {
         	if (err) console.log(err, err.stack); // an error occurred
         	else console.log(data);           // successful response
     	});
     console.log('done');
 
-    callback(null, JSONpayload);
+    callback(null, "pptx:" + " " + filename);
 		});
 	}
  
