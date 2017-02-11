@@ -156,7 +156,7 @@ exports.handler = (event, context, callback) => {
     	});
     console.log('done');
 
-    callback(null, "pptx:" + " " + filename);
+    callback(null, "success");
 		});
 	}
  
