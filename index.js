@@ -156,7 +156,7 @@ exports.handler = (event, context, callback) => {
     	});
     console.log('done');
 
-    callback(null, {"location": "https://s3.amazonaws.com/slides.harvardartmuseums.org/" . filename});
+    callback(null, {"location": "https://s3.amazonaws.com/slides.harvardartmuseums.org/" + filename});
 		});
 	}
  
